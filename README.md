@@ -1,24 +1,47 @@
-# Development
+# Todo List App
 
-Your new bare-bones project includes minimal organization with a single `main.rs` file and a few assets.
+A simple Todo List application built with Dioxus 0.7. This app allows you to add and remove todo items with a clean, dark-themed interface.
+
+## Features
+
+- Add new todos by typing in the input field and pressing Enter or clicking "Add Todo".
+- Remove todos by clicking the "Remove" button next to each item.
+- Responsive design with a dark theme.
+
+## Project Structure
 
 ```
 project/
-├─ assets/ # Any assets that are used by the app should be placed here
+├─ assets/
+│  ├─ main.css # Styles for the app, including dark theme
 ├─ src/
-│  ├─ main.rs # main.rs is the entry point to your application and currently contains all components for the app
-├─ Cargo.toml # The Cargo.toml file defines the dependencies and feature flags for your project
+│  ├─ main.rs # Main application code with the Todo List component
+├─ Cargo.toml # Dependencies and features
+├─ Dioxus.toml # Dioxus configuration
 ```
 
-### Serving Your App
+## Running the App
 
-Run the following command in the root of your project to start developing with the default platform:
+To run the app in desktop mode (default):
+
+```bash
+cargo run
+```
+
+To run in web mode:
+
+```bash
+dx serve --platform web
+```
+
+Or serve with the default platform:
 
 ```bash
 dx serve
 ```
 
-To run for a different platform, use the `--platform platform` flag. E.g.
-```bash
-dx serve --platform desktop
-```
+## Technologies Used
+
+- **Dioxus 0.7**: For building the UI with RSX.
+- **Rust**: Programming language.
+- **CSS**: For styling.
