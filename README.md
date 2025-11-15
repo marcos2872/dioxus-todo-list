@@ -1,47 +1,46 @@
-# Todo List App
+# Todo List (Dioxus)
 
-A simple Todo List application built with Dioxus 0.7. This app allows you to add and remove todo items with a clean, dark-themed interface.
+Um exemplo simples de lista de tarefas (Todo) construído com Dioxus 0.7 e Rust.
 
-## Features
-
-- Add new todos by typing in the input field and pressing Enter or clicking "Add Todo".
-- Remove todos by clicking the "Remove" button next to each item.
-- Responsive design with a dark theme.
-
-## Project Structure
-
+O que você precisa para rodar
+- Rust toolchain (stable) com `cargo`.
+- Dioxus CLI (`dx`) instalada. Eu recomendo instalar com:
+```dioxus/README.md#L1-3
+curl -sSL http://dioxus.dev/install.sh | sh
 ```
-project/
-├─ assets/
-│  ├─ main.css # Styles for the app, including dark theme
-├─ src/
-│  ├─ main.rs # Main application code with the Todo List component
-├─ Cargo.toml # Dependencies and features
-├─ Dioxus.toml # Dioxus configuration
+- Para testar no Android:
+  - Android SDK / platform-tools (com `adb`) e um emulador AVD ou dispositivo físico com USB debugging ativado.
+  - Java JDK (necessário para builds nativos).
+- Opcional: ImageMagick se você quiser gerar/ajustar ícones localmente.
+
+Como rodar (modo desenvolvimento)
+1. Entre no diretório do projeto Dioxus:
+```dioxus/README.md#L1-6
+cd dioxus
 ```
-
-## Running the App
-
-To run the app in desktop mode (default):
-
-```bash
+2. Rode o servidor de desenvolvimento:
+```dioxus/README.md#L7-11
+# usa o default_platform definido em Dioxus.toml
 dx serve
+
+# ou, explicitamente para Android:
+# dx serve --platform android
 ```
 
-To run in web mode:
-
-```bash
-dx serve --platform web
+Estrutura básica do projeto
+```dioxus/README.md#L12-22
+dioxus/
+├─ assets/
+│  ├─ icons/         # ícones do app
+│  ├─ main.css
+├─ src/
+│  ├─ main.rs        # código principal da aplicação
+├─ Cargo.toml
+├─ Dioxus.toml       # configuração do dioxus (platform, icons, identifier)
+├─ README.md
 ```
 
-Or run in android mode:
-
-```bash
-dx serve --platform android
-```
-
-## Technologies Used
-
-- **Dioxus 0.7**: For building the UI with RSX.
-- **Rust**: Programming language.
-- **CSS**: For styling.
+Dicas rápidas
+- Verifique dispositivos conectados com `adb devices`.
+- Se o ícone não atualizar no emulador, tente desinstalar a app antiga ou reiniciar o launcher/emulador.
+- Se quiser, eu posso ajudar a criar um script para gerar ícones automaticamente a partir de um PNG/SVG base.

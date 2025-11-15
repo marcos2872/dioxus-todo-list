@@ -1,8 +1,34 @@
+# Dioxus application configuration
+# Atualizado para direcionar o build para Android e listar ícones recomendados.
 [application]
+
+# Lista de ícones que serão incluídos no empacotamento.
+# Recomenda-se fornecer várias resoluções para Android:
+# - mdpi  (≈48x48)
+# - hdpi  (≈72x72)
+# - xhdpi (≈96x96)
+# - xxhdpi(≈144x144)
+# - xxxhdpi(≈192x192)
+# Additionally: uma versão grande (512x512) para lojas/representações maiores.
+icon = [
+  "assets/icons/ic_launcher_mdpi.png",
+  "assets/icons/ic_launcher_hdpi.png",
+  "assets/icons/ic_launcher_xhdpi.png",
+  "assets/icons/ic_launcher_xxhdpi.png",
+  "assets/icons/ic_launcher_xxxhdpi.png",
+  "assets/icons/icon-512.png",
+  "assets/icons/icon.png",
+  "assets/icons/128x128.png",
+  "assets/icons/32x32.png"
+]
+
+[build]
+# Define Android como plataforma padrão para builds/serve
+default_platform = "android"
 
 [web.app]
 
-# HTML title tag content
+# HTML title tag content (mantido para eventuais builds web)
 title = "dioxus"
 
 # include `assets` in web platform
@@ -16,6 +42,26 @@ script = []
 
 [web.resource.dev]
 
-# Javascript code file
-# serve: [dev-server] only
+# Javascript code file (serve: [dev-server] only)
 script = []
+
+# Diretório de assets (relativo à raiz do projeto)
+asset_dir = "assets"
+
+# Identificador do sub-pacote (útil para empacotamento no Android)
+sub_package = "todo-list"
+identifier = "com.marcos.todolist"
+publisher = "DioxusLabs"
+
+# Notas:
+# - Coloque os arquivos de ícone em `dioxus/assets/icons/` com os nomes acima.
+# - Exemplo de tamanhos sugeridos (pixels):
+#     ic_launcher_mdpi.png   -> 48x48
+#     ic_launcher_hdpi.png   -> 72x72
+#     ic_launcher_xhdpi.png  -> 96x96
+#     ic_launcher_xxhdpi.png -> 144x144
+#     ic_launcher_xxxhdpi.png-> 192x192
+#     icon-512.png           -> 512x512
+# - Após adicionar os arquivos, use a CLI do Dioxus para testar:
+#     dx serve --platform android
+# - Para gerar pacotes finais (APK/Bundle), use os comandos de build/packaging da CLI `dx`.

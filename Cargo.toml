@@ -10,7 +10,7 @@ edition = "2021"
 dioxus = { version = "0.7.1", features = [] }
 
 [features]
-default = ["desktop"]
+default = ["mobile"]
 web = ["dioxus/web"]
 desktop = ["dioxus/desktop"]
 mobile = ["dioxus/mobile"]
